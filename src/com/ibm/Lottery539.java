@@ -2,7 +2,7 @@ package com.ibm;
 
 import java.util.Random;
 
-public class Lottery539 {
+public class Lottery539 implements Game{
 	int[] numbers = new int[5];
 
 	public Lottery539(){
@@ -21,7 +21,8 @@ public class Lottery539 {
 		this.numbers = nums;
 	}
 	
-	protected boolean validate(){   //同一packet 可用
+	@Override
+	public boolean validate(){   //同一packet 可用
 		int[] spots = new int[39];
 	
 		for(int i=0;i<5;i++){
@@ -37,6 +38,8 @@ public class Lottery539 {
 		else
 			return true;
 	}
+	
+	@Override
 	public void generate() {
 		Random r = new Random();
 		boolean[] spots = new boolean[40];
@@ -78,7 +81,7 @@ public class Lottery539 {
 		print();
 	 
 	}
-
+	@Override
 	public void print() {
 		for (int i = 0; i < 5; i++) {
 			System.out.print(numbers[i] + " ");
@@ -99,6 +102,19 @@ public class Lottery539 {
 		
 		Lottery539 lot2 = new Lottery539(1,2,9,4,5);
 		System.out.println(lot2.validate());
+		
+		//介面使用，多型
+		int k = 3;
+		Game[] games = new Game[k];
+		
+		games[0] = new Lottery539();
+		games[1] = new Lottery539(1,2,3,4,5);
+		games[2] = new WillyGame();
+		
+		for(int i=0;i<games.length;i++){
+			games[i].print();
+		}
+		 
 	}
 
 }
