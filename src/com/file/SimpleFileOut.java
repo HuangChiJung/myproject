@@ -13,6 +13,21 @@ public class SimpleFileOut {
 //		writeFile();
 //		readFile();
 		//bufferedReaderFile();
+		scoring();
+		
+		divideByZero();
+	}
+
+	private static void divideByZero() {
+		try{
+			int n = 0/1;
+			
+		}catch(ArithmeticException e){
+			System.out.println("分母不為零");
+		}
+	}
+
+	private static void scoring() {
 		Scanner scanner = new Scanner(System.in);
 		int sum =0;
 		for (int i = 0; i < 10; i++) {
@@ -26,13 +41,6 @@ public class SimpleFileOut {
 			} catch (NumberFormatException e) {
 				System.out.println("NumberFormatException and input again!");
 			}
-		}
-		
-		try{
-			int n = 0/1;
-			
-		}catch(ArithmeticException e){
-			System.out.println("分母不為零");
 		}
 	}
 
