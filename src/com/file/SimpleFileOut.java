@@ -9,13 +9,32 @@ import java.util.Scanner;
 
 public class SimpleFileOut {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args){
 //		writeFile();
-//		readFile();
+		readFile();
+ 
 		//bufferedReaderFile();
-		scoring();
+		//scoring();
 		
-		divideByZero();
+		//divideByZero();
+		
+		try {
+			FileReader fr = new FileReader("data.txt");
+			BufferedReader in = new BufferedReader(fr); // 串接
+			String line;
+			line = in.readLine();
+			while (line != null) {
+				System.out.println(line);
+				line = in.readLine();
+			}
+			in.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	private static void divideByZero() {
@@ -44,35 +63,53 @@ public class SimpleFileOut {
 		}
 	}
 
-	private static void bufferedReaderFile() throws FileNotFoundException, IOException {
-		FileReader fr = new FileReader("data.txt");
-		BufferedReader in = new BufferedReader(fr);  //串接
-		String line;
-		line = in.readLine();
-		while(line!=null){
-			System.out.println(line);
+	private static void bufferedReaderFile() {
+		try {
+			FileReader fr = new FileReader("data.txt");
+			BufferedReader in = new BufferedReader(fr);  //串接
+			String line;
 			line = in.readLine();
+			while(line!=null){
+				System.out.println(line);
+				line = in.readLine();
+			}
+			in.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		in.close();
 	}
 
-	private static void readFile() throws FileNotFoundException, IOException {
-		FileReader in = new FileReader("data.txt");
-		int d=0;
-		
-		while(d!=-1){
-			d = in.read();
-			System.out.println((char)d);
+	private static void readFile() {
+		try {
+			FileReader in = new FileReader("data.txt");
+			int d=0;
+			
+			while(d!=-1){
+				d = in.read();
+				System.out.println((char)d);
+			}
+			in.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		in.close();
 	}
 
-	private static void writeFile() throws IOException {
-		FileWriter out = new FileWriter("data.txt");
+	private static void writeFile() {
+		try {
+			FileWriter out = new FileWriter("data.txt");
  
-		out.write("12 54987痾|~ㄎ赊");
-		out.flush();
-		out.close();
+			out.write("12 54987痾|~ㄎ赊");
+			out.flush();
+			out.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
