@@ -23,11 +23,24 @@ public class Wizard  extends Player {
 //		String s2 = new String("abc");
 		
 		
-		String s1 = "abc";  //編譯器 雞婆  認為 S1 及 S2  是同一個常數, 就創建一份
+		String s1 = "abcddccc";  //編譯器 雞婆  認為 S1 及 S2  是同一個常數, 就創建一份
 		
 		String s2 = "abc";
 		
 		
+		System.out.println(s1.replace("c","K"));
+		s1.charAt(1);
+		try {
+			System.out.println(s1.charAt(6));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		s1.indexOf("b");
+		
+		s1.lastIndexOf("x");
+		
+		System.out.println(s1.lastIndexOf("b"));
 		
 		System.out.println(s1==s2);
 		System.out.println(s1.equals(s2));
