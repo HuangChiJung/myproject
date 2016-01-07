@@ -37,27 +37,21 @@ public class ParkingLot {
 		return mins;
 	}
 	
-	class Car{
-		String id;
-		Date enter;
-		public Car(String id, Date enter) {
-			super();
-			this.id = id;
-			this.enter = enter;
-		}
-		public Car(String id, String enterstring) {
-			super();
-			this.id = id;
-			try {
-				Date enter = sdf.parse(enterstring);
-				this.enter = enter;
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+	public void add(Car c){
+		cars.put(c.id, c);
 	}
-	 
+	
+	public int remove(Car c){
+		int fee =0;
+		if(cars.containsKey(c.id)){
+			//Car car = cars.remove(c);
+			//process(c.id, c.enter);
+			//int mins = (int)(c.enter.getTime()-car.enter.getTime()/(1000*60)); 
+			//fee = (int)(rate*Math.ceil(mins/60f));
+		}
+		return fee;
+	}
+	
 	public static void main(String[] args) {
 		ParkingLot lot = new ParkingLot();
 		try {
