@@ -23,7 +23,7 @@ public class GraduateStudent extends Student implements Reporter{
 	}
 
 	public static void main(String arg) {
-		Student stu = new Student();
+		//Student stu = new Student();
 		
 	}
 
